@@ -20,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:textSize="20dp"
                 android:textAlignment="center"
                 android:text="TextView" />
 
@@ -28,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:textSize="20dp"
                 android:textAlignment="center"
                 android:text="TextView" />
 
@@ -36,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="@color/black"
                 android:textAlignment="center"
+                android:textSize="20dp"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
         </TableRow>

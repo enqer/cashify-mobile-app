@@ -10,11 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import com.example.cashify.R
 import android.widget.TextView
-import java.util.ArrayList
 
-class PersonAdapter(var mPerson: ArrayList<Person>, private val mItemListener: ItemClickListener) :
-    RecyclerView.Adapter<PersonViewHolder>() {
+
+class PersonAdapter(var mPerson: ArrayList<Person>) :
+//    RecyclerView.Adapter<PersonViewHolder>() {
+    RecyclerView.Adapter<PersonAdapter.PersonViewHolder>(){
     private val context: Context? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         val v: View =
             LayoutInflater.from(parent.context).inflate(R.layout.person_item, parent, false)
@@ -26,12 +28,12 @@ class PersonAdapter(var mPerson: ArrayList<Person>, private val mItemListener: I
         holder.name.text = currentItem.name
 //        holder.date.text = currentItem.date
         holder.content.text = currentItem.content
-//        holder.balance.text(currentItem.balance)
-        holder.itemView.setOnClickListener { view: View? ->
-            mItemListener.onItemClick(
-                mPerson[position]
-            )
-        }
+        holder.balance.text = (currentItem.balance).toString()
+//        holder.itemView.setOnClickListener { view: View? ->
+//            mItemListener.onItemClick(
+//                mPerson[position]
+//            )
+//        }
     }
 
     override fun getItemCount(): Int {
