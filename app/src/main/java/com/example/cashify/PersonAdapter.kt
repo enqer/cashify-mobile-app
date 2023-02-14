@@ -27,7 +27,7 @@ class PersonAdapter(var mPerson: ArrayList<Person>) :
         val currentItem = mPerson[position]
         holder.name.text = currentItem.name
 //        holder.date.text = currentItem.date
-        holder.content.text = currentItem.content
+//        holder.content.text = currentItem.content
         holder.balance.text = (currentItem.balance).toString()
 //        holder.itemView.setOnClickListener { view: View? ->
 //            mItemListener.onItemClick(
@@ -47,14 +47,14 @@ class PersonAdapter(var mPerson: ArrayList<Person>) :
     class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
 //        var date: TextView
-        var content: TextView
+//        var content: TextView
         var balance: TextView
         private val context: Context
 
         init {
             name = itemView.findViewById(R.id.personName)
 //            date = itemView.findViewById(R.id.personDate)
-            content = itemView.findViewById(R.id.personContent)
+//            content = itemView.findViewById(R.id.personContent)
             balance = itemView.findViewById(R.id.personBalance)
             //            itemView.setBackgroundColor(Color.WHITE);
             context = itemView.context

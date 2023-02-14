@@ -53,13 +53,13 @@ class DashboardFragment : Fragment() {
     }
 
     fun getPersons(){
-        val o = Person("Pawel","14.02.2023","bieda w chuj", 21.37)
-        persons.add(Person("Pawel","14.02.2023","bieda w chuj", 21.37))
+        val o = Person("Pawel","14.02.2023","za pizze", 21.37)
+        persons.add(Person("Pawel","14.02.2023","colka", 21.37))
         mRecyclerView = binding.root.findViewById(R.id.recyclerView)
         mRecyclerView.setHasFixedSize(true)
         mLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
         mAdapter = PersonAdapter(persons)
         mRecyclerView.layoutManager=mLayoutManager
-        mRecyclerView.adapter = mAdapter    // kotlin
+        mRecyclerView.adapter = mAdapter
     }
 }

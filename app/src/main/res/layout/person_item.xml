@@ -33,14 +33,13 @@
                 android:textAlignment="center"
                 android:text="TextView" />
 
-            <TextView
-                android:id="@+id/personContent"
+            <ImageButton
+                android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:textSize="20dp"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:background="@color/white"
+                app:srcCompat="@drawable/ic_arrow_forward"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </TableRow>
 
     </TableLayout>
