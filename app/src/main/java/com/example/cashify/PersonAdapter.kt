@@ -1,0 +1,64 @@
+package com.example.cashify
+
+import android.content.Context
+import com.example.cashify.Person.name
+import com.example.cashify.Person.date
+import com.example.cashify.Person.content
+import com.example.cashify.Person.balance
+import com.example.cashify.PersonAdapter.ItemClickListener
+import androidx.recyclerview.widget.RecyclerView
+import com.example.cashify.PersonAdapter.PersonViewHolder
+import android.view.ViewGroup
+import android.view.LayoutInflater
+import android.view.View
+import com.example.cashify.R
+import android.widget.TextView
+import java.util.ArrayList
+
+class PersonAdapter(var mPerson: ArrayList<Person>, private val mItemListener: ItemClickListener) :
+    RecyclerView.Adapter<PersonViewHolder>() {
+    private val context: Context? = null
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
+        val v: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.person_item, parent, false)
+        return PersonViewHolder(v)
+    }
+
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
+        val currentItem = mPerson[position]
+        holder.name.text = currentItem.name
+        holder.date.text = currentItem.date
+        holder.content.text = currentItem.content
+        holder.balance.setText(currentItem.balance)
+        holder.itemView.setOnClickListener { view: View? ->
+            mItemListener.onItemClick(
+                mPerson[position]
+            )
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return mPerson.size
+    }
+
+    interface ItemClickListener {
+        fun onItemClick(person: Person?)
+    }
+
+    class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var name: TextView
+        var date: TextView
+        var content: TextView
+        var balance: TextView
+        private val context: Context
+
+        init {
+            name = itemView.findViewById(R.id.personLogin)
+            date = itemView.findViewById(R.id.personDate)
+            content = itemView.findViewById(R.id.personContent)
+            balance = itemView.findViewById(R.id.personBalance)
+            //            itemView.setBackgroundColor(Color.WHITE);
+            context = itemView.context
+        }
+    }
+}
