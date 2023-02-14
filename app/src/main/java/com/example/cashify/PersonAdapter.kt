@@ -1,10 +1,7 @@
 package com.example.cashify
 
 import android.content.Context
-import com.example.cashify.Person.name
-import com.example.cashify.Person.date
-import com.example.cashify.Person.content
-import com.example.cashify.Person.balance
+
 import com.example.cashify.PersonAdapter.ItemClickListener
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashify.PersonAdapter.PersonViewHolder
@@ -27,9 +24,9 @@ class PersonAdapter(var mPerson: ArrayList<Person>, private val mItemListener: I
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         val currentItem = mPerson[position]
         holder.name.text = currentItem.name
-        holder.date.text = currentItem.date
+//        holder.date.text = currentItem.date
         holder.content.text = currentItem.content
-        holder.balance.setText(currentItem.balance)
+//        holder.balance.text(currentItem.balance)
         holder.itemView.setOnClickListener { view: View? ->
             mItemListener.onItemClick(
                 mPerson[position]
@@ -47,14 +44,14 @@ class PersonAdapter(var mPerson: ArrayList<Person>, private val mItemListener: I
 
     class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
-        var date: TextView
+//        var date: TextView
         var content: TextView
         var balance: TextView
         private val context: Context
 
         init {
-            name = itemView.findViewById(R.id.personLogin)
-            date = itemView.findViewById(R.id.personDate)
+            name = itemView.findViewById(R.id.personName)
+//            date = itemView.findViewById(R.id.personDate)
             content = itemView.findViewById(R.id.personContent)
             balance = itemView.findViewById(R.id.personBalance)
             //            itemView.setBackgroundColor(Color.WHITE);

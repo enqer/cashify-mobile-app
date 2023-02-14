@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cashify.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
-
+    private var mRecyclerView : RecyclerView? = null
+//    private var mAdapter : RecyclerView.Adapter
     private var _binding: FragmentDashboardBinding? = null
 
     // This property is only valid between onCreateView and

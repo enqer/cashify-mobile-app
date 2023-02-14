@@ -1,6 +1,7 @@
 package com.example.cashify
 
-class Person(val name: String, val date: String, val content: String, val balance: Double) {
-    var String: `var`? = null
+class Person(name: String, date: String, var content: String, var balance: Double) {
+    val name = name
+    val date = date
 
 }
