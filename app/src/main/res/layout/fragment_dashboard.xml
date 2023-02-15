@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.dashboard.DashboardFragment"
+    android:id="@+id/dash">
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    android:id="@+id/t"
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="173dp"
+        android:layout_height="180dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +38,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="32dp"
+        android:minHeight="40dp"
         android:orientation="horizontal"
         android:background="#AAC4FF"
 
@@ -39,9 +47,22 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:text="Person:"
+ />
+
+        <TextView
             android:id="@+id/textView"
             android:padding="4dp"
             android:textSize="18dp"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -52,11 +73,12 @@
         <TextView
             android:id="@+id/textView2"
             android:padding="4dp"
+
             android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Cash"
+            android:text="Balance"
             android:textColor="@color/black"/>
 
         <ImageButton
@@ -73,9 +95,11 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
