@@ -62,6 +62,7 @@ class PersonFragment : Fragment() {
 
 
 
+
         return root
     }
 
@@ -69,7 +70,6 @@ class PersonFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PersonViewModel::class.java)
         // TODO: Use the ViewModel
-
 
     }
 
