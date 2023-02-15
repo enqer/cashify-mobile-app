@@ -15,11 +15,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.cashify.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
-        <action
-            android:id="@+id/action_navigation_dashboard_to_navigation_person"
-            app:destination="@id/navigation_person" />
-    </fragment>
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -31,9 +27,5 @@
         android:name="com.example.cashify.PersonFragment"
         android:label="Person"
         tools:layout="@layout/fragment_person"
-        >
-        <action
-            android:id="@+id/action_navigation_person_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
-    </fragment>
+        />
 </navigation>

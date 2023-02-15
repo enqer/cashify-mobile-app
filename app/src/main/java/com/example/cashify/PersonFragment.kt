@@ -1,15 +1,19 @@
 package com.example.cashify
 
-import androidx.lifecycle.ViewModelProvider
+
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
-import androidx.navigation.fragment.NavHostFragment
+import androidx.lifecycle.ViewModelProvider
+import java.util.zip.Inflater
+
 
 class PersonFragment : Fragment() {
 
@@ -45,8 +49,8 @@ class PersonFragment : Fragment() {
 
         var txtName: TextView = root.findViewById(R.id.fpName)
         var txtIncome: TextView = root.findViewById(R.id.income)
-        var txtDate: TextView = root.findViewById(R.id.fpDate)
-        var txtContent: TextView = root.findViewById(R.id.fpContent)
+//        var txtDate: TextView = root.findViewById(R.id.fpDate)
+//        var txtContent: TextView = root.findViewById(R.id.fpContent)
 
         setFragmentResultListener("requestKey") { key, bundle ->
             val name = bundle.getString("n")
@@ -55,12 +59,17 @@ class PersonFragment : Fragment() {
             val balance = bundle.getDouble("b")
             txtName.text=name.toString()
             txtIncome.text=balance.toString()
-            txtDate.text=date.toString()
-            txtContent.text=content.toString()
+//            txtDate.text=date.toString()
+//            txtContent.text=content.toString()
         }
 
 
-
+//        val scroll = root.findViewById(R.id.) as ScrollView
+//        val scroll: ScrollView = root.
+//        val inflater = getSystemService<Any>(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
+//        val view: View = inflater.inflate(R.layout.tile, null)
+//        scroll.addView(view)
+        //TODO dynamic add to scrollView
 
 
         return root
