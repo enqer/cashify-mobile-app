@@ -2,7 +2,7 @@ package com.example.cashify
 
 import android.content.Context
 
-import com.example.cashify.PersonAdapter.ItemClickListener
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashify.PersonAdapter.PersonViewHolder
 import android.view.ViewGroup
@@ -12,9 +12,8 @@ import com.example.cashify.R
 import android.widget.TextView
 
 
-class PersonAdapter(var mPerson: ArrayList<Person>) :
-//    RecyclerView.Adapter<PersonViewHolder>() {
-    RecyclerView.Adapter<PersonAdapter.PersonViewHolder>(){
+class PersonAdapter(var mPerson: ArrayList<Person>,var mItemListener: OnItemClickListener) :
+    RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {
     private val context: Context? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
@@ -24,15 +23,15 @@ class PersonAdapter(var mPerson: ArrayList<Person>) :
     }
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
-        val currentItem = mPerson[position]
+//        mPerson[position]
+
+        val currentItem: Person = mPerson[position]
         holder.name.text = currentItem.name
 //        holder.date.text = currentItem.date
 //        holder.content.text = currentItem.content
         holder.balance.text = (currentItem.balance).toString()
-//        holder.itemView.setOnClickListener { view: View? ->
-//            mItemListener.onItemClick(
-//                mPerson[position]
-//            )
+//        holder.itemView.setOnClickListener {
+//            mItemListener?.onItemClick(currentItem)
 //        }
     }
 
@@ -40,11 +39,11 @@ class PersonAdapter(var mPerson: ArrayList<Person>) :
         return mPerson.size
     }
 
-    interface ItemClickListener {
-        fun onItemClick(person: Person?)
-    }
+//    interface ItemClickListener {
+//        fun onItemClick(person: Person)
+//    }
 
-    class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener {
         var name: TextView
 //        var date: TextView
 //        var content: TextView
@@ -58,6 +57,21 @@ class PersonAdapter(var mPerson: ArrayList<Person>) :
             balance = itemView.findViewById(R.id.personBalance)
             //            itemView.setBackgroundColor(Color.WHITE);
             context = itemView.context
+            itemView.setOnClickListener(this) // do wywalenia?
+        }
+
+        override fun onClick(p0: View?) {
+            val position = adapterPosition
+            if (position!= RecyclerView.NO_POSITION){
+                mItemListener.onItemClick(position)
+            }
+
         }
     }
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+
 }
