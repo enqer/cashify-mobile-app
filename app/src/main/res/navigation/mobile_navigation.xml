@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_person"
-        android:name="com.example.cashify.PersonFragment"
+        android:name="com.example.cashify.ui.personFragment.PersonFragment"
         android:label="Person"
         tools:layout="@layout/fragment_person"
         />

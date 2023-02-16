@@ -1,4 +1,4 @@
-package com.example.cashify
+package com.example.cashify.ui.personFragment
 
 import androidx.lifecycle.ViewModel
 

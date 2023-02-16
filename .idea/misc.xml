@@ -6,11 +6,13 @@
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/drawable/background_radius.xml" value="0.2315" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/drawable/ic_add.xml" value="0.2095" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/drawable/ic_arrow_forward.xml" value="0.2315" />
+        <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/drawable/ic_avatar_bad_breaking.xml" value="0.2315" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/drawable/ic_avatar_default.xml" value="0.2315" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/data_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/fragment_home.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/fragment_input.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/fragment_notifications.xml" value="0.27760416666666665" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/fragment_person.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pawel/AndroidStudioProjects/Cashify/app/src/main/res/layout/person_item.xml" value="0.365625" />

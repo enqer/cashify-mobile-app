@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashify.Person
 import com.example.cashify.PersonAdapter
-import com.example.cashify.PersonFragment
 import com.example.cashify.R
 import com.example.cashify.databinding.FragmentDashboardBinding
 import java.text.SimpleDateFormat

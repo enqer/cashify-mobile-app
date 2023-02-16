@@ -1,18 +1,15 @@
-package com.example.cashify
+package com.example.cashify.ui.personFragment
 
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ScrollView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
-import java.util.zip.Inflater
+import com.example.cashify.R
 
 
 class PersonFragment : Fragment() {
