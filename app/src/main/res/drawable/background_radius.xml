@@ -11,8 +11,8 @@
 
 
     <gradient
-        android:startColor="@color/blue_3"
-        android:endColor="@color/blue_4"
+        android:startColor="@color/purple_200"
+        android:endColor="@color/purple_200"
         android:angle="90"/>
 
     <padding

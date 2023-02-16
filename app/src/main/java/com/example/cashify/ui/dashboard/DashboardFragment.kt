@@ -104,9 +104,12 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
         val o = Person("Gaweł",current,"za pizze", 4.20)
         persons.add(Person("Paweł",current,"colka", 21.37))
-        persons.add(Person("eqwaweł",current,"coewqeka", 2.37))
-//        persons.add(o)
-        Log.d("test", persons[1].toString())
+        persons.add(Person("Paweł",current,"colka", 21.37))
+        persons.add(o)
+
+
+
+
         mRecyclerView = binding.root.findViewById(R.id.recyclerView)
         mRecyclerView.setHasFixedSize(true)
         mLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
