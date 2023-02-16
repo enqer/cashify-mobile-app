@@ -1,16 +1,22 @@
 package com.example.cashify
 
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageButton
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.cashify.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMainBinding
 
@@ -18,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-//        supportActionBar?.hide()
+        supportActionBar?.hide()
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
@@ -33,5 +39,43 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+
     }
+    fun addPerson(view: View) {
+        val navHostFragment = supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navController = navHostFragment.navController
+
+// Navigate using the IDs you defined in your Nav Graph
+        navController.navigate(R.id.navigation_input)
+    }
+    fun selectImg(view: View){
+        val imageButton1: ImageButton = findViewById(R.id.imageButton1)
+        imageButton1.setBackgroundColor(Color.WHITE)
+        val imageButton2: ImageButton = findViewById(R.id.imageButton2)
+        imageButton2.setBackgroundColor(Color.WHITE)
+        val imageButton3: ImageButton = findViewById(R.id.imageButton3)
+        imageButton3.setBackgroundColor(Color.WHITE)
+        val imageButton4: ImageButton = findViewById(R.id.imageButton4)
+        imageButton4.setBackgroundColor(Color.WHITE)
+        val imageButton5: ImageButton = findViewById(R.id.imageButton5)
+        imageButton5.setBackgroundColor(Color.WHITE)
+        val imageButton6: ImageButton = findViewById(R.id.imageButton6)
+        imageButton6.setBackgroundColor(Color.WHITE)
+
+        if (view.id == imageButton1.id)
+            imageButton1.setBackgroundColor(Color.parseColor("#545587"))
+        else if (view.id == imageButton2.id)
+            imageButton2.setBackgroundColor(Color.parseColor("#545587"))
+        else if (view.id == imageButton3.id)
+            imageButton3.setBackgroundColor(Color.parseColor("#545587"))
+        else if (view.id == imageButton4.id)
+            imageButton4.setBackgroundColor(Color.parseColor("#545587"))
+        else if (view.id == imageButton5.id)
+            imageButton5.setBackgroundColor(Color.parseColor("#545587"))
+        else if (view.id == imageButton6.id)
+            imageButton6.setBackgroundColor(Color.parseColor("#545587"))
+    }
+
 }

@@ -114,4 +114,6 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         mRecyclerView.layoutManager=mLayoutManager
         mRecyclerView.adapter = mAdapter
     }
+
+
 }

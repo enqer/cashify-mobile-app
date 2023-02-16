@@ -32,19 +32,19 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/imageButton1"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_bad_breaking"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
-                    android:id="@+id/imageButton3"
+                    android:id="@+id/imageButton2"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_batman_comics"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
-                    android:id="@+id/imageButton4"
+                    android:id="@+id/imageButton3"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_dead_monster"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -55,19 +55,19 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/imageButton5"
+                    android:id="@+id/imageButton4"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_elderly_grandma"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
-                    android:id="@+id/imageButton6"
+                    android:id="@+id/imageButton5"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_man_muslim"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
-                    android:id="@+id/imageButton7"
+                    android:id="@+id/imageButton6"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_man_person"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -85,11 +85,8 @@
 
         <EditText
             android:id="@+id/inputName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            style="@style/InputEditText"
             android:inputType="textPersonName"
-            android:minHeight="48dp"
             android:hint="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,12 +102,9 @@
 
         <EditText
             android:id="@+id/inputBalance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
+            style="@style/InputEditText"
+            android:inputType="numberDecimal"
             android:hint="Number"
-            android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11"
@@ -126,11 +120,8 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            style="@style/InputEditText"
             android:inputType="textPersonName"
-            android:minHeight="48dp"
             android:hint="Content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -28,4 +28,11 @@
         android:label="Person"
         tools:layout="@layout/fragment_person"
         />
+    <fragment
+        android:id="@+id/navigation_input"
+        android:name="com.example.cashify.ui.inputData.inputFragment"
+        android:label="Person"
+        tools:layout="@layout/fragment_input"
+        />
+
 </navigation>
