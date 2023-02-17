@@ -4,60 +4,58 @@
     tools:ignore="MissingDefaultResource"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:background="@android:color/transparent"
+
     android:layout_margin="4dp"
+
     >
 
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_height="match_parent"
-        android:stretchColumns="*">
 
-        <TableRow
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_margin="2dp"
             android:layout_height="match_parent"
-            android:background="@drawable/background_radius"
-            android:padding="8dp"
-
-            >
+            android:background="@drawable/background_radius">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_avatar_default" />
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_avatar_default"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/personName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLength="15"
+                android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:maxLength="10"
-
-                android:text="TextView" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.515" />
 
             <TextView
                 android:id="@+id/personBalance"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:maxLength="10"
+                android:text="TextView"
+                android:layout_marginRight="10dp"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:maxLength="10"
-                android:textAlignment="center"
-                android:text="TextView" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/imgViewPerson"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_arrow_forward"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-        </TableRow>
-
-    </TableLayout>
 
 </androidx.cardview.widget.CardView>

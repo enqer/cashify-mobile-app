@@ -77,7 +77,13 @@ class MainActivity : AppCompatActivity(){
         val name = inputName.text.toString()
         val balance = inputBalance.text.toString()
         val content = inputContent.text.toString()
-        val avatar = inputAvatar.tag.toString()
+        var avatar = ""
+        try{
+            avatar = inputAvatar.tag.toString()
+        }catch (e: Exception){
+            avatar = ""
+        }
+
 
         if (name.isEmpty() || balance.isEmpty() || content.isEmpty() || avatar.isEmpty())
             Toast.makeText(this, "Please enter required information!", Toast.LENGTH_SHORT).show()
@@ -85,7 +91,7 @@ class MainActivity : AppCompatActivity(){
             val formatter = SimpleDateFormat("dd-MM-yyyy")
             val date = Date()
             val current = formatter.format(date)
-            val person = Person(name = name, date = current, content = content, balance = balance.toDouble(),avatar= avatar)
+            val person = Person(name = name, date = current, content = content, balance = balance.toDouble(),avatar = avatar)
             val status = sqLiteManager.insertPerson(person)
 
             if (status > -1){

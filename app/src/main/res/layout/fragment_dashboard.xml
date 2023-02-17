@@ -14,71 +14,67 @@
     >
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_700"
-        android:minHeight="40dp"
-        android:orientation="horizontal"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView3"
-            style="@style/dashTextView"
-            android:text="Person:"
-            />
-
-        <TextView
             android:id="@+id/textView"
             style="@style/dashTextView"
-            android:layout_weight="5"
-            android:text="Name"
-            />
+            android:text="Name:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
             style="@style/dashTextView"
-            android:layout_weight="10"
-            android:text="Balance"
-            />
+            android:layout_marginRight="10dp"
+            android:text="Balance:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        <ImageButton-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView3"-->
+<!--            style="@style/dashTextView"-->
+<!--            android:text="Person:"-->
+<!--            />-->
+
+        <!--        <ImageButton-->
 <!--            android:id="@+id/imageButton2"-->
 <!--            style="@style/dashTextView"-->
 <!--            android:background="@color/purple_700"-->
 <!--            android:onClick="addPerson"-->
 <!--            android:src="@drawable/ic_add"-->
 <!--            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />-->
-    </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:layout_marginTop="40dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/floatingActionButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="#85649F"-->
-<!--        android:clickable="true"-->
-<!--        android:src="@drawable/ic_add"-->
-<!--        app:backgroundTint="#85649F"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        tools:ignore="SpeakableTextPresentCheck" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+    </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

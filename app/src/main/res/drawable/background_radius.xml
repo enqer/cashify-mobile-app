@@ -2,18 +2,17 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@android:color/transparent">
     <solid android:background="@android:color/transparent"/>
-    <!--
+
    <stroke
-       android:width="3dp"/>
-
-       android:color="@color/blue_1"
-       -->
+       android:width="3dp"
+       android:color="@color/purple_700"/>
 
 
-    <gradient
-        android:startColor="@color/purple_200"
-        android:endColor="@color/purple_200"
-        android:angle="90"/>
+
+<!--    <gradient-->
+<!--        android:startColor="@color/purple_200"-->
+<!--        android:endColor="@color/purple_200"-->
+<!--        android:angle="90"/>-->
 
     <padding
         android:left="5dp"

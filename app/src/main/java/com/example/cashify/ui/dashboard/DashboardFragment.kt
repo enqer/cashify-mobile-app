@@ -27,15 +27,11 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
     var persons = ArrayList<Person>()
 
-    var idPersons = mutableListOf<String>()
-
     private lateinit var sqLiteManager: SQLiteManager
 
 
     private var _binding: FragmentDashboardBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -51,10 +47,6 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
         sqLiteManager = SQLiteManager(this.requireContext())
 
-//        val textView: TextView = binding.textDashboard
-//        dashboardViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
 
 
         persons.clear()
@@ -123,11 +115,9 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
 
     fun getPersons(){
-
         sqLiteManager.getAllPeople().forEach {
             persons.add(it)
         }
-
         mRecyclerView = binding.root.findViewById(R.id.recyclerView)
         mRecyclerView.setHasFixedSize(true)
         mLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
