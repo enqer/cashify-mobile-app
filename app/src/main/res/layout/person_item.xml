@@ -20,10 +20,10 @@
             android:background="@drawable/background_radius">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
+                android:id="@+id/personImageView"
+                android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:padding="10dp"
+                android:padding="4dp"
                 android:src="@drawable/ic_avatar_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -31,27 +31,22 @@
 
             <TextView
                 android:id="@+id/personName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/personItemTextView"
                 android:maxLength="15"
                 android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/personImageView"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.515" />
 
             <TextView
                 android:id="@+id/personBalance"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/personItemTextView"
                 android:layout_gravity="end"
                 android:maxLength="10"
                 android:text="TextView"
                 android:layout_marginRight="10dp"
-                android:textColor="@color/black"
-                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

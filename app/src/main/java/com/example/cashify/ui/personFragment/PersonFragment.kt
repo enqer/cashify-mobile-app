@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -42,6 +43,7 @@ class PersonFragment : Fragment() {
 //            Log.d("te","tetete")
 //
 //        }
+        var picutre: ImageView = root.findViewById(R.id.fpImageView)
 
 
         var txtName: TextView = root.findViewById(R.id.fpName)
@@ -54,11 +56,23 @@ class PersonFragment : Fragment() {
             val date = bundle.getString("d")
             val content = bundle.getString("c")
             val balance = bundle.getDouble("b")
+            val avatar = bundle.getString("a")
+
             txtName.text=name.toString()
             txtIncome.text=balance.toString()
 //            txtDate.text=date.toString()
 //            txtContent.text=content.toString()
+
+            when(avatar){
+                "img1" -> picutre.setImageResource(R.drawable.ic_avatar_bad_breaking)
+                "img2" -> picutre.setImageResource(R.drawable.ic_avatar_batman_comics)
+                "img3" -> picutre.setImageResource(R.drawable.ic_avatar_dead_monster)
+                "img4" -> picutre.setImageResource(R.drawable.ic_avatar_elderly_grandma)
+                "img5" -> picutre.setImageResource(R.drawable.ic_avatar_man_muslim)
+                "img6" -> picutre.setImageResource(R.drawable.ic_avatar_man_person)
+            }
         }
+
 
 
 //        val scroll = root.findViewById(R.id.) as ScrollView

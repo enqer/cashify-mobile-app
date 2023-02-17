@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.home.HomeFragment">
 
     <ImageButton
@@ -96,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="50dp"
+
             android:onClick="addPerson"
             android:text="add new" />
 
@@ -104,6 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="50dp"
+
             android:onClick="addPerson"
             android:layout_weight="1"
             android:text="add new" />

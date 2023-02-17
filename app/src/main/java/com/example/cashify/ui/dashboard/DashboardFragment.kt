@@ -103,7 +103,8 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         val content = clickedItem.content
         val balance = clickedItem.balance
         val date = clickedItem.date
-        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance))
+        val avatar = clickedItem.avatar
+        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar))
 
 //         as per defined in your FragmentContainerView
         val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
