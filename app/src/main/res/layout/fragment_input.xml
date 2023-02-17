@@ -34,18 +34,21 @@
                 <ImageButton
                     android:id="@+id/imageButton1"
                     style="@style/InputImageView"
+                    android:tag="img1"
                     android:src="@drawable/ic_avatar_bad_breaking"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton2"
                     style="@style/InputImageView"
+                    android:tag="img2"
                     android:src="@drawable/ic_avatar_batman_comics"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton3"
                     style="@style/InputImageView"
+                    android:tag="img3"
                     android:src="@drawable/ic_avatar_dead_monster"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
@@ -57,11 +60,13 @@
                 <ImageButton
                     android:id="@+id/imageButton4"
                     style="@style/InputImageView"
+                    android:tag="img4"
                     android:src="@drawable/ic_avatar_elderly_grandma"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton5"
+                    android:tag="img5"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_man_muslim"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -69,6 +74,7 @@
                 <ImageButton
                     android:id="@+id/imageButton6"
                     style="@style/InputImageView"
+                    android:tag="img6"
                     android:src="@drawable/ic_avatar_man_person"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
@@ -119,7 +125,7 @@
             app:layout_constraintTop_toBottomOf="@+id/inputBalance" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/inputContent"
             style="@style/InputEditText"
             android:inputType="textPersonName"
             android:hint="Content"
@@ -133,9 +139,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Submit"
+            android:onClick="submitPerson"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/inputContent"
+            tools:ignore="OnClick" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

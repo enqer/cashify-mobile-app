@@ -1,7 +1,6 @@
 package com.example.cashify.ui.dashboard
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashify.Person
 import com.example.cashify.PersonAdapter
 import com.example.cashify.R
+import com.example.cashify.SQLiteManager
 import com.example.cashify.databinding.FragmentDashboardBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,6 +28,9 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
     var persons = ArrayList<Person>()
 
     var idPersons = mutableListOf<String>()
+
+    private lateinit var sqLiteManager: SQLiteManager
+
 
     private var _binding: FragmentDashboardBinding? = null
 
@@ -45,6 +49,8 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        sqLiteManager = SQLiteManager(this.requireContext())
+
 //        val textView: TextView = binding.textDashboard
 //        dashboardViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
@@ -56,7 +62,27 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         getPersons()
 
 
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                // this method is called
+                // when the item is moved.
+                return false
+            }
 
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                var position: Int = viewHolder.adapterPosition
+                sqLiteManager.deletePerson(persons[position].id)
+                persons.removeAt(position)
+                mAdapter.notifyDataSetChanged()
+
+
+            }
+
+        }).attachToRecyclerView(mRecyclerView)
 
 
         return root
@@ -98,17 +124,9 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
     fun getPersons(){
 
-        val formatter = SimpleDateFormat("dd-MM-yyyy")
-        val date = Date()
-        val current = formatter.format(date)
-
-        val o = Person("Gaweł",current,"za pizze", 4.20)
-        persons.add(Person("Paweł",current,"colka", 21.37))
-        persons.add(Person("Paweł",current,"colka", 21.37))
-        persons.add(o)
-
-
-
+        sqLiteManager.getAllPeople().forEach {
+            persons.add(it)
+        }
 
         mRecyclerView = binding.root.findViewById(R.id.recyclerView)
         mRecyclerView.setHasFixedSize(true)
