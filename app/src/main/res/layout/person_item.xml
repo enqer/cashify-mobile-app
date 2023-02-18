@@ -4,26 +4,24 @@
     tools:ignore="MissingDefaultResource"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="50dp"
     android:layout_margin="4dp"
-
     >
-
-
-
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_margin="2dp"
             android:layout_height="match_parent"
-            android:background="@drawable/background_radius">
+            android:background="@drawable/background_radius"
+            >
 
             <ImageView
                 android:id="@+id/personImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:padding="4dp"
+                android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_avatar_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +33,7 @@
                 android:maxLength="15"
                 android:text="TextView"
                 android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/personImageView"
                 app:layout_constraintTop_toTopOf="parent"
@@ -46,11 +45,10 @@
                 android:layout_gravity="end"
                 android:maxLength="10"
                 android:text="TextView"
+                android:background="@android:color/transparent"
                 android:layout_marginRight="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.dashboard.DashboardFragment"
+    android:background="@color/playGrey"
     android:id="@+id/dash">
 
 <androidx.constraintlayout.widget.ConstraintLayout

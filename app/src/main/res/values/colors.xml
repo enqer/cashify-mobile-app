@@ -5,7 +5,8 @@
     <color name="purple_200">#7D7FC7</color>
     <color name="purple_500">#545587</color>
 <!--    <color name="purple_700">#FF3700B3</color>-->
-    <color name="purple_700">#545587</color>
+<!--    <color name="purple_700">#545587</color>-->
+    <color name="purple_700">#6b43be</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -15,4 +16,13 @@
     <color name="blue_3">#D2DAFF</color>
     <color name="blue_4">#EEF1FF</color>
     <color name="green">#219F28</color>
+
+    <!-- do wypróbowania play -->
+
+    <color name="playPurple">#6b43be</color>
+    <color name="playGrey">#f6f6f6</color>
+    <color name="playBlack">#141414</color>
+    <color name="playWhite">#fefdff</color>
+    <color name="playGreyer">#78797a</color>
+
 </resources>
