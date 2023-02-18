@@ -41,8 +41,7 @@ class inputFragment : Fragment() {
         // Inflate the layout for this fragment
         var root = inflater.inflate(R.layout.fragment_input, container, false)
 
-//        var imageButton: ImageButton = root.findViewById(R.id.)
-//        imageButton.setOnClickListener(imgBtnListener)
+
 
         return root
     }

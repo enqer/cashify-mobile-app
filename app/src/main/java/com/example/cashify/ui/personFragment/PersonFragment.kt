@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.example.cashify.R
+import java.lang.Math.ceil
+import java.lang.Math.floor
 
 
 class PersonFragment : Fragment() {
@@ -21,11 +23,6 @@ class PersonFragment : Fragment() {
 
     private lateinit var viewModel: PersonViewModel
 
-//    lateinit var name: String
-//    lateinit var date: String
-//    lateinit var content: String
-//    var balance: Double = 0.0
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,35 +30,36 @@ class PersonFragment : Fragment() {
     ): View? {
         var root = inflater.inflate(R.layout.fragment_person, container, false)
 
-//        val bundle = this.arguments
-//        if (bundle != null){
-//            name = bundle.get("name") as String
-//            date = bundle.get("date") as String
-//            content = bundle.get("content") as String
-//            balance = bundle.get("balance") as Double
-//            Log.d("te",date)
-//            Log.d("te","tetete")
-//
-//        }
+
         var picutre: ImageView = root.findViewById(R.id.fpImageView)
 
 
         var txtName: TextView = root.findViewById(R.id.fpName)
         var txtIncome: TextView = root.findViewById(R.id.income)
-//        var txtDate: TextView = root.findViewById(R.id.fpDate)
-//        var txtContent: TextView = root.findViewById(R.id.fpContent)
+        var txtDate: TextView = root.findViewById(R.id.fpDate)
+        var txtContent: TextView = root.findViewById(R.id.fpContent)
+        var txtBalance: TextView = root.findViewById(R.id.fpBalance)
 
         setFragmentResultListener("requestKey") { key, bundle ->
             val name = bundle.getString("n")
             val date = bundle.getString("d")
             val content = bundle.getString("c")
-            val balance = bundle.getDouble("b")
+            var balance = bundle.getDouble("b")
             val avatar = bundle.getString("a")
 
+
+            val s: String = "€"
+            if (ceil(balance) == floor(balance)){
+                txtBalance.text = balance.toInt().toString() + s
+            }else{
+                txtBalance.text=balance.toString() + s
+            }
+
             txtName.text=name.toString()
-            txtIncome.text=balance.toString()
-//            txtDate.text=date.toString()
-//            txtContent.text=content.toString()
+            txtIncome.text=txtBalance.text
+            txtDate.text=date.toString()
+            txtContent.text=content.toString()
+
 
             when(avatar){
                 "img1" -> picutre.setImageResource(R.drawable.ic_avatar_bad_breaking)
@@ -75,12 +73,6 @@ class PersonFragment : Fragment() {
 
 
 
-//        val scroll = root.findViewById(R.id.) as ScrollView
-//        val scroll: ScrollView = root.
-//        val inflater = getSystemService<Any>(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
-//        val view: View = inflater.inflate(R.layout.tile, null)
-//        scroll.addView(view)
-        //TODO dynamic add to scrollView
 
 
         return root

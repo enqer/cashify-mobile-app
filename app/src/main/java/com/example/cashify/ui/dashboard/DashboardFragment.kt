@@ -118,6 +118,8 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
     fun getPersons(){
         sqLiteManager.getAllPeople().forEach {
             persons.add(it)
+
+
         }
         mRecyclerView = binding.root.findViewById(R.id.recyclerView)
         mRecyclerView.setHasFixedSize(true)

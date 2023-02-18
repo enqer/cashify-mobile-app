@@ -2,6 +2,9 @@ package com.example.cashify
 
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -17,6 +20,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.cashify.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity(){
 
@@ -41,7 +47,7 @@ class MainActivity : AppCompatActivity(){
         sqLiteManager = SQLiteManager(this)
 
         // stuff
-//        initView()
+
 
 
 
@@ -88,10 +94,15 @@ class MainActivity : AppCompatActivity(){
         if (name.isEmpty() || balance.isEmpty() || content.isEmpty() || avatar.isEmpty())
             Toast.makeText(this, "Please enter required information!", Toast.LENGTH_SHORT).show()
         else{
+            //date
             val formatter = SimpleDateFormat("dd-MM-yyyy")
             val date = Date()
             val current = formatter.format(date)
-            val person = Person(name = name, date = current, content = content, balance = balance.toDouble(),avatar = avatar)
+            //parsing double
+            var balanceDouble = (balance.toDouble() * 100.0).roundToInt() / 100.0
+
+
+            val person = Person(name = name, date = current, content = content, balance = balanceDouble,avatar = avatar)
             val status = sqLiteManager.insertPerson(person)
 
             if (status > -1){
@@ -149,12 +160,6 @@ class MainActivity : AppCompatActivity(){
         inputAvatar = findViewById(view.id)
     }
 
-    private fun initView(){
-        inputName = findViewById(R.id.inputName)
-        inputBalance = findViewById(R.id.inputBalance)
-        inputContent = findViewById(R.id.inputContent)
-//        inputAvatar = findViewById(R.id.inputAvatar)
 
-    }
 
 }

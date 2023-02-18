@@ -30,7 +30,14 @@ class PersonAdapter(var mPerson: ArrayList<Person>,var mItemListener: OnItemClic
         holder.name.text = currentItem.name
 //        holder.date.text = currentItem.date
 //        holder.content.text = currentItem.content
-        holder.balance.text = (currentItem.balance).toString()
+//        holder.balance.text = (currentItem.balance).toString()
+        val s: String = "€"
+        if (Math.ceil(currentItem.balance) == Math.floor(currentItem.balance)){
+            holder.balance.text = currentItem.balance.toInt().toString() + s
+        }else{
+            holder.balance.text = (currentItem.balance).toString() + s
+        }
+
 
         when(currentItem.avatar){
             "img1" -> holder.avatar.setImageResource(R.drawable.ic_avatar_bad_breaking)
