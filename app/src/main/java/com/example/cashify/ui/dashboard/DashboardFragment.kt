@@ -98,7 +98,7 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 var position: Int = viewHolder.adapterPosition
-                sqLiteManager.deletePerson(persons[position].id)
+                sqLiteManager.deletePerson(persons[position].id,"table_cashify")
                 persons.removeAt(position)
                 mAdapter.notifyDataSetChanged()
 
@@ -135,7 +135,9 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         val balance = clickedItem.balance
         val date = clickedItem.date
         val avatar = clickedItem.avatar
-        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar))
+        val allBalance = sqLiteManager.sumBalanceByPerson("table_cashify", name)
+
+        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar, "i" to allBalance))
 
 //         as per defined in your FragmentContainerView
         val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
@@ -147,7 +149,7 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
 
     fun getPersons(){
-        sqLiteManager.getAllPeople().forEach {
+        sqLiteManager.getAllPeople("table_cashify").forEach {
             persons.add(it)
             persons.sortByDescending { it.balance }
 

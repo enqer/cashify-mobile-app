@@ -30,6 +30,7 @@
             style="@style/homeTextView"
             android:layout_margin="30dp"
             android:text="@string/app_name"
+            android:textColor="@color/playPurple"
             android:textSize="36dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,8 +74,9 @@
                     android:text="Lent to:" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/homeLentTo"
                     style="@style/homeTextView"
+                    android:textColor="@color/playPurple"
                     android:text="Textview" />
             </LinearLayout>
 
@@ -90,7 +92,8 @@
                     android:text="Lent from:" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/homeLentFrom"
+                    android:textColor="@color/playPurple"
                     style="@style/homeTextView"
                     android:text="TextView" />
             </LinearLayout>

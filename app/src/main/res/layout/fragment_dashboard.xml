@@ -14,7 +14,6 @@
     android:id="@+id/t"
     >
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -44,21 +43,6 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView3"-->
-<!--            style="@style/dashTextView"-->
-<!--            android:text="Person:"-->
-<!--            />-->
-
-        <!--        <ImageButton-->
-<!--            android:id="@+id/imageButton2"-->
-<!--            style="@style/dashTextView"-->
-<!--            android:background="@color/purple_700"-->
-<!--            android:onClick="addPerson"-->
-<!--            android:src="@drawable/ic_add"-->
-<!--            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,8 +61,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

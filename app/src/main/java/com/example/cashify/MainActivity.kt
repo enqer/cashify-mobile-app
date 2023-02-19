@@ -9,15 +9,14 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.*
 import android.window.SplashScreen
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
+import androidx.core.view.isEmpty
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity(){
     private lateinit var inputBalance: EditText
     private lateinit var inputContent: EditText
     private lateinit var inputAvatar: ImageButton
+    private lateinit var radioGroup: RadioGroup
 
     private lateinit var sqLiteManager: SQLiteManager
 
@@ -78,18 +78,19 @@ class MainActivity : AppCompatActivity(){
 
     }
 
-    fun getPeople(){
-        val personList = sqLiteManager.getAllPeople()
-        Log.e("test", "${personList.size}")
-    }
+//    fun getPeople(){
+//        val personList = sqLiteManager.getAllPeople()
+//        Log.e("test", "${personList.size}")
+//    }
 
 
     fun submitPerson(view: View) {
         inputName = findViewById(R.id.inputName)
         inputBalance = findViewById(R.id.inputBalance)
         inputContent = findViewById(R.id.inputContent)
+        radioGroup = findViewById(R.id.radioGroup)
 
-
+        val idRadio = radioGroup.checkedRadioButtonId
         val name = inputName.text.toString()
         val balance = inputBalance.text.toString()
         val content = inputContent.text.toString()
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity(){
         }
 
 
-        if (name.isEmpty() || balance.isEmpty() || content.isEmpty() || avatar.isEmpty())
+        if (name.isEmpty() || balance.isEmpty() || content.isEmpty() || avatar.isEmpty() || idRadio == -1)
             Toast.makeText(this, "Please enter required information!", Toast.LENGTH_SHORT).show()
         else{
             //date
@@ -113,7 +114,14 @@ class MainActivity : AppCompatActivity(){
 
 
             val person = Person(name = name, date = current, content = content, balance = balanceDouble,avatar = avatar)
-            val status = sqLiteManager.insertPerson(person)
+            val tableName: String
+            if (idRadio == findViewById<RadioButton>(R.id.inputRadioBtn1).id){
+                tableName = "table_cashify"
+            }else {
+                tableName = "table_cashify_not"
+            }
+
+            val status = sqLiteManager.insertPerson(person,tableName)
 
             if (status > -1){
                 Toast.makeText(this, "Person Added!", Toast.LENGTH_SHORT).show()
@@ -124,7 +132,7 @@ class MainActivity : AppCompatActivity(){
                 Toast.makeText(this, "Record not saved", Toast.LENGTH_SHORT).show()
             }
         }
-        getPeople()
+//        getPeople()
     }
 
 

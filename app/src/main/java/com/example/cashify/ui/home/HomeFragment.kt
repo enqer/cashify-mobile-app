@@ -4,14 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.cashify.R
+import com.example.cashify.SQLiteManager
 import com.example.cashify.databinding.FragmentHomeBinding
+import kotlin.math.roundToInt
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+
+    private lateinit var sqLiteManager: SQLiteManager
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,6 +33,28 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+
+        sqLiteManager = SQLiteManager(this.requireContext())
+
+        val homeLentTo: TextView = root.findViewById(R.id.homeLentTo)
+        val homeLentFrom: TextView = root.findViewById(R.id.homeLentFrom)
+
+        val lentTo = sqLiteManager.sumBalance("table_cashify")
+        val lentFrom = sqLiteManager.sumBalance("table_cashify_not")
+
+        if (Math.ceil(lentFrom) == Math.floor(lentFrom)){
+            homeLentFrom.text = lentFrom.toInt().toString() + "€"
+        }else{
+            homeLentFrom.text = lentFrom.toString() + "€"
+        }
+
+        if (Math.ceil(lentTo) == Math.floor(lentTo)){
+            homeLentTo.text = lentTo.toInt().toString() + "€"
+        }else{
+            homeLentTo.text = lentTo.toString() + "€"
+        }
+
 
 
 

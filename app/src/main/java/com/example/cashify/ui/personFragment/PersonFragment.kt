@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
+import com.example.cashify.Person
 import com.example.cashify.R
 import java.lang.Math.ceil
 import java.lang.Math.floor
@@ -46,6 +47,8 @@ class PersonFragment : Fragment() {
             val content = bundle.getString("c")
             var balance = bundle.getDouble("b")
             val avatar = bundle.getString("a")
+            val allBalance = bundle.getDouble("i")
+            val t = bundle.getStringArrayList("o")
 
 
             val s: String = "€"
@@ -54,9 +57,14 @@ class PersonFragment : Fragment() {
             }else{
                 txtBalance.text=balance.toString() + s
             }
+            if (ceil(allBalance) == floor(allBalance)){
+                txtIncome.text = allBalance.toInt().toString() + s
+            }else{
+                txtIncome.text=allBalance.toString() + s
+            }
 
             txtName.text=name.toString()
-            txtIncome.text=txtBalance.text
+//            txtIncome.text=allBalance.toString()
             txtDate.text=date.toString()
             txtContent.text=content.toString()
 

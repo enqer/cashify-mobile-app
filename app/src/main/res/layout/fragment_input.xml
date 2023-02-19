@@ -34,22 +34,22 @@
                 <ImageButton
                     android:id="@+id/imageButton1"
                     style="@style/InputImageView"
-                    android:tag="img1"
                     android:src="@drawable/ic_avatar_bad_breaking"
+                    android:tag="img1"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton2"
                     style="@style/InputImageView"
-                    android:tag="img2"
                     android:src="@drawable/ic_avatar_batman_comics"
+                    android:tag="img2"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton3"
                     style="@style/InputImageView"
-                    android:tag="img3"
                     android:src="@drawable/ic_avatar_dead_monster"
+                    android:tag="img3"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
 
@@ -60,22 +60,22 @@
                 <ImageButton
                     android:id="@+id/imageButton4"
                     style="@style/InputImageView"
-                    android:tag="img4"
                     android:src="@drawable/ic_avatar_elderly_grandma"
+                    android:tag="img4"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton5"
-                    android:tag="img5"
                     style="@style/InputImageView"
                     android:src="@drawable/ic_avatar_man_muslim"
+                    android:tag="img5"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton6"
                     style="@style/InputImageView"
-                    android:tag="img6"
                     android:src="@drawable/ic_avatar_man_person"
+                    android:tag="img6"
                     tools:ignore="SpeakableTextPresentCheck" />
             </TableRow>
 
@@ -92,17 +92,17 @@
         <EditText
             android:id="@+id/inputName"
             style="@style/InputEditText"
-            android:maxLength="25"
             android:hint="Name"
             android:inputType="textPersonName"
+            android:maxLength="25"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <TextView
             android:id="@+id/textView11"
-            android:text="Enter balance:"
             style="@style/InputTextView"
+            android:text="Enter balance:"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputName" />
@@ -110,17 +110,16 @@
         <EditText
             android:id="@+id/inputBalance"
             style="@style/InputEditText"
-            android:inputType="numberDecimal"
             android:hint="Number"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
-             />
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <TextView
             android:id="@+id/textView12"
             style="@style/InputTextView"
-            android:text="Content:"
+            android:text="Enter content:"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputBalance" />
@@ -128,24 +127,52 @@
         <EditText
             android:id="@+id/inputContent"
             style="@style/InputEditText"
+            android:hint="Content"
             android:inputType="textPersonName"
             android:maxLength="100"
-            android:hint="Content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_marginTop="16dp"
-            style="@style/homeBtn"
-            android:text="Submit"
-
-            android:onClick="submitPerson"
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/InputTextView"
+            android:text="Select options:"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputContent"
+            app:layout_constraintTop_toBottomOf="@+id/inputContent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <RadioButton
+                android:id="@+id/inputRadioBtn1"
+                style="@style/InputRadioButton"
+                android:text="Money lent to sb" />
+
+            <RadioButton
+                android:id="@+id/inputRadioBtn2"
+                style="@style/InputRadioButton"
+                android:text="Money lent from sb" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button"
+            style="@style/homeBtn"
+            android:onClick="submitPerson"
+            android:layout_marginTop="5dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
             tools:ignore="OnClick" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
