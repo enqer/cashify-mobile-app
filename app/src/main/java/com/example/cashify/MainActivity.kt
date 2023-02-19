@@ -130,10 +130,6 @@ class MainActivity : AppCompatActivity(){
 
     fun addPerson(view: View) {
 
-        if (view.id == R.id.homeBtn1)
-            isLoan=true
-        else if (view.id == R.id.homeBtn2)
-            isLoan=false
 
         val navHostFragment = supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         val navController = navHostFragment.navController

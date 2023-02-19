@@ -92,6 +92,7 @@
         <EditText
             android:id="@+id/inputName"
             style="@style/InputEditText"
+            android:maxLength="25"
             android:hint="Name"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +129,7 @@
             android:id="@+id/inputContent"
             style="@style/InputEditText"
             android:inputType="textPersonName"
+            android:maxLength="100"
             android:hint="Content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
