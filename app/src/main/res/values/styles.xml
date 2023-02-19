@@ -36,7 +36,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">8dp</item>
         <item name="android:textSize">24dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/playGreyer</item>
         <item name="android:layout_weight">1</item>
     </style>
 
@@ -103,7 +103,6 @@
         <item name="android:padding">10dp</item>
         <item name="android:background">@drawable/background_page</item>
     </style>
-
 
 
 

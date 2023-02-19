@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
@@ -17,6 +18,7 @@ import com.example.cashify.PersonAdapter
 import com.example.cashify.R
 import com.example.cashify.SQLiteManager
 import com.example.cashify.databinding.FragmentDashboardBinding
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -46,6 +48,35 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         val root: View = binding.root
 
         sqLiteManager = SQLiteManager(this.requireContext())
+
+        // sorting list by name or balance account
+        val nameSort: TextView = root.findViewById(R.id.nameSort)
+        nameSort.setOnClickListener{
+            if (nameSort.text.equals("Name ▼"))
+            {
+                persons.sortByDescending { it.name }
+                mAdapter.notifyDataSetChanged()
+                nameSort.text="Name ▲"
+            }else{
+                persons.sortBy{ it.name }
+                mAdapter.notifyDataSetChanged()
+                nameSort.text="Name ▼"
+            }
+
+        }
+        val balanceSort: TextView = root.findViewById(R.id.balanceSort)
+        balanceSort.setOnClickListener{
+            if (balanceSort.text.equals("Balance ▼")){
+                persons.sortBy { it.balance }
+                mAdapter.notifyDataSetChanged()
+                balanceSort.text="Balance ▲"
+            }else{
+                persons.sortByDescending { it.balance }
+                mAdapter.notifyDataSetChanged()
+                balanceSort.text="Balance ▼"
+            }
+        }
+
 
 
 
@@ -118,6 +149,7 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
     fun getPersons(){
         sqLiteManager.getAllPeople().forEach {
             persons.add(it)
+            persons.sortByDescending { it.balance }
 
 
         }
@@ -128,6 +160,8 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         mRecyclerView.layoutManager=mLayoutManager
         mRecyclerView.adapter = mAdapter
     }
+
+
 
 
 }
