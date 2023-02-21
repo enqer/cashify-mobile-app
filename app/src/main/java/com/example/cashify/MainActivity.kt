@@ -83,10 +83,6 @@ class MainActivity : AppCompatActivity(){
 
     }
 
-//    fun getPeople(){
-//        val personList = sqLiteManager.getAllPeople()
-//        Log.e("test", "${personList.size}")
-//    }
 
 
     fun submitPerson(view: View) {
