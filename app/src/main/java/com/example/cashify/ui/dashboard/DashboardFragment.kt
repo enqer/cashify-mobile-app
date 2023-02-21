@@ -1,5 +1,6 @@
 package com.example.cashify.ui.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,9 +19,11 @@ import com.example.cashify.PersonAdapter
 import com.example.cashify.R
 import com.example.cashify.SQLiteManager
 import com.example.cashify.databinding.FragmentDashboardBinding
+import com.example.cashify.ui.personFragment.PersonFragment
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
     private lateinit var mRecyclerView : RecyclerView
@@ -28,6 +31,7 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
     private lateinit var mLayoutManager : RecyclerView.LayoutManager
 
     var persons = ArrayList<Person>()
+    val newArr = ArrayList<Person>()
 
     private lateinit var sqLiteManager: SQLiteManager
 
@@ -54,11 +58,11 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         nameSort.setOnClickListener{
             if (nameSort.text.equals("Name ▼"))
             {
-                persons.sortByDescending { it.name }
+                newArr.sortByDescending { it.name }
                 mAdapter.notifyDataSetChanged()
                 nameSort.text="Name ▲"
             }else{
-                persons.sortBy{ it.name }
+                newArr.sortBy{ it.name }
                 mAdapter.notifyDataSetChanged()
                 nameSort.text="Name ▼"
             }
@@ -67,11 +71,11 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         val balanceSort: TextView = root.findViewById(R.id.balanceSort)
         balanceSort.setOnClickListener{
             if (balanceSort.text.equals("Balance ▼")){
-                persons.sortBy { it.balance }
+                newArr.sortBy { it.balance }
                 mAdapter.notifyDataSetChanged()
                 balanceSort.text="Balance ▲"
             }else{
-                persons.sortByDescending { it.balance }
+                newArr.sortByDescending { it.balance }
                 mAdapter.notifyDataSetChanged()
                 balanceSort.text="Balance ▼"
             }
@@ -81,7 +85,7 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
 
         persons.clear()
-
+        newArr.clear()
         getPersons()
 
 
@@ -117,17 +121,8 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
     }
 
     override fun onItemClick(position: Int) {
-//        Toast.makeText(requireContext(), "Item $position clicked", Toast.LENGTH_SHORT).show()
-        val clickedItem: Person = persons[position]
+        val clickedItem: Person = newArr[position]
         mAdapter.notifyItemChanged(position)
-        //TODO do poprawy najwyżej, strzalka na wyjście z tego, zapisywanie stanu wsm spoko ale idk czy będzie git finalnie
-//        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.dash, PersonFragment())?.addToBackStack(null)?.commit()
-//        fragmentManager?.beginTransaction()?.add((requireView().parent as ViewGroup).id, PersonFragment())?.commit()
-//        fragmentManager?.beginTransaction()?.replace(R.id.dash, PersonFragment())?.commit()
-
-
-
-        // bad idea i guess
 
         // przekazywanie danych
         val name = clickedItem.name
@@ -136,29 +131,45 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
         val date = clickedItem.date
         val avatar = clickedItem.avatar
         val allBalance = sqLiteManager.sumBalanceByPerson("table_cashify", name)
+        val which = "table_cashify"
 
-        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar, "i" to allBalance))
+        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar, "i" to allBalance, "w" to which))
 
 //         as per defined in your FragmentContainerView
-        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-        val navController = navHostFragment.navController
+//        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+//        val navController = navHostFragment.navController
+//
+//// Navigate using the IDs you defined in your Nav Graph
+//        navController.navigate(R.id.navigation_person)
 
-// Navigate using the IDs you defined in your Nav Graph
-        navController.navigate(R.id.navigation_person)
+//        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+//        fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment_activity_main, PersonFragment())?.commit()
+
+        parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, PersonFragment()).commit()
+
     }
 
 
     fun getPersons(){
+
         sqLiteManager.getAllPeople("table_cashify").forEach {
             persons.add(it)
             persons.sortByDescending { it.balance }
 
+        }
+
+        persons.distinctBy { it.name }.forEach{
+            it.balance = sqLiteManager.sumBalanceByPerson("table_cashify",it.name)
+            newArr.add(it)
 
         }
+//        persons.clear()
+//        persons = newArr
+
         mRecyclerView = binding.root.findViewById(R.id.recyclerView)
         mRecyclerView.setHasFixedSize(true)
         mLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
-        mAdapter = PersonAdapter(persons, this)
+        mAdapter = PersonAdapter(newArr, this)
         mRecyclerView.layoutManager=mLayoutManager
         mRecyclerView.adapter = mAdapter
     }

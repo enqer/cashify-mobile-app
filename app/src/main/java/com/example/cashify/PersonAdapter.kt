@@ -17,6 +17,7 @@ class PersonAdapter(var mPerson: ArrayList<Person>,var mItemListener: OnItemClic
     RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {
     private val context: Context? = null
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         val v: View =
             LayoutInflater.from(parent.context).inflate(R.layout.person_item, parent, false)
@@ -31,6 +32,8 @@ class PersonAdapter(var mPerson: ArrayList<Person>,var mItemListener: OnItemClic
 //        holder.date.text = currentItem.date
 //        holder.content.text = currentItem.content
 //        holder.balance.text = (currentItem.balance).toString()
+
+
         val s: String = "€"
         if (Math.ceil(currentItem.balance) == Math.floor(currentItem.balance)){
             holder.balance.text = currentItem.balance.toInt().toString() + s

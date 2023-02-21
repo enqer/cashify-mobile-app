@@ -106,46 +106,41 @@ class SQLiteManager(context: Context)
     }
 
 
-//    @SuppressLint("Range")
-//    fun getAll(nameTable: String): ArrayList<Person> {
-//
-//        val nameList: ArrayList<String> = ArrayList()
-//
-//        val personList: ArrayList<Person> = ArrayList()
-//        val selectQuery = "SELECT DISTINCT name FROM $nameTable"
-//        val db = this.readableDatabase
-//
-//        val cursor: Cursor?
-//
-//        try {
-//            cursor = db.rawQuery(selectQuery, null)
-//        } catch (e: Exception){
-//            e.printStackTrace()
-//            db.execSQL(selectQuery)
-//            return ArrayList()
-//        }
-//
-//
-//        var name: String
-//
-//
-//        if (cursor.moveToFirst()){
-//            do{
-//
-//                name = cursor.getString(cursor.getColumnIndex("name"))
-//                nameList.add(name)
-//
-//            } while (cursor.moveToNext())
-//        }
-//
-//        val selectQueryTwo = "SELECT DISTINCT name FROM $nameTable"
-//
-//
-//
-//
-//        return personList
-//    }
 
+
+    @SuppressLint("Range")
+    fun getAllContent(name: String, n: String): ArrayList<Content>{
+        val contentList: ArrayList<Content> = ArrayList()
+        val selectQuery = "SELECT * FROM $name WHERE name='$n'"
+        val db = this.readableDatabase
+
+        val cursor: Cursor?
+
+        try {
+            cursor =db.rawQuery(selectQuery, null)
+        }catch (e: Exception){
+            e.printStackTrace()
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+
+        var date: String
+        var content: String
+        var balance: Double
+
+        if (cursor.moveToFirst()){
+            do{
+                date = cursor.getString(cursor.getColumnIndex("date"))
+                balance = cursor.getDouble(cursor.getColumnIndex("balance"))
+                content = cursor.getString(cursor.getColumnIndex("content"))
+
+                val con = Content(date = date, balance = balance
+                    , content = content)
+                contentList.add(con)
+            } while (cursor.moveToNext())
+        }
+        return contentList
+    }
 
     @SuppressLint("Range")
     fun getAllPeople(name: String): ArrayList<Person> {
@@ -195,6 +190,17 @@ class SQLiteManager(context: Context)
         contentValues.put(ID, id)
 
         val success = db.delete(name, "id=$id", null)
+        db.close()
+        return success
+    }
+
+    fun deleteContent(con: String, name: String): Int{
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(CONTENT, con)
+
+        val success = db.delete(name, "content='$con'", null)
         db.close()
         return success
     }

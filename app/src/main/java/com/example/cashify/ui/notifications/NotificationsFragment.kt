@@ -18,6 +18,7 @@ import com.example.cashify.PersonAdapter
 import com.example.cashify.R
 import com.example.cashify.SQLiteManager
 import com.example.cashify.databinding.FragmentNotificationsBinding
+import com.example.cashify.ui.personFragment.PersonFragment
 import java.util.ArrayList
 
 class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
@@ -27,6 +28,7 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
     private lateinit var mLayoutManagerNot : RecyclerView.LayoutManager
 
     var personsNot = ArrayList<Person>()
+    val newArr = ArrayList<Person>()
 
     private lateinit var sqLiteManagerNot: SQLiteManager
 
@@ -54,11 +56,11 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
         nameSortNot.setOnClickListener{
             if (nameSortNot.text.equals("Name ▼"))
             {
-                personsNot.sortByDescending { it.name }
+                newArr.sortByDescending { it.name }
                 mAdapterNot.notifyDataSetChanged()
                 nameSortNot.text="Name ▲"
             }else{
-                personsNot.sortBy{ it.name }
+                newArr.sortBy{ it.name }
                 mAdapterNot.notifyDataSetChanged()
                 nameSortNot.text="Name ▼"
             }
@@ -79,7 +81,7 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
 
 
         personsNot.clear()
-
+        newArr.clear()
         getPersons()
 
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -113,17 +115,9 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
     }
 
      override fun onItemClick(position: Int) {
-//        Toast.makeText(requireContext(), "Item $position clicked", Toast.LENGTH_SHORT).show()
-        val clickedItem: Person = personsNot[position]
+        val clickedItem: Person = newArr[position]
         mAdapterNot.notifyItemChanged(position)
-        //TODO do poprawy najwyżej, strzalka na wyjście z tego, zapisywanie stanu wsm spoko ale idk czy będzie git finalnie
-//        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.dash, PersonFragment())?.addToBackStack(null)?.commit()
-//        fragmentManager?.beginTransaction()?.add((requireView().parent as ViewGroup).id, PersonFragment())?.commit()
-//        fragmentManager?.beginTransaction()?.replace(R.id.dash, PersonFragment())?.commit()
 
-
-
-        // bad idea i guess
 
         // przekazywanie danych
         val name = clickedItem.name
@@ -131,14 +125,22 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
         val balance = clickedItem.balance
         val date = clickedItem.date
         val avatar = clickedItem.avatar
-        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar))
+         val allBalance = sqLiteManagerNot.sumBalanceByPerson("table_cashify_not", name)
+         val which = "table_cashify_not"
+
+        setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar, "i" to allBalance, "w" to which))
 
 //         as per defined in your FragmentContainerView
-        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-        val navController = navHostFragment.navController
+//        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+//        val navController = navHostFragment.navController
+//
+//// Navigate using the IDs you defined in your Nav Graph
+//        navController.navigate(R.id.navigation_person)
 
-// Navigate using the IDs you defined in your Nav Graph
-        navController.navigate(R.id.navigation_person)
+        // works
+//         fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment_activity_main, PersonFragment())?.commit()
+
+         parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, PersonFragment()).commit()
     }
 
     fun getPersons(){
@@ -148,10 +150,16 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
 
 
         }
+        personsNot.distinctBy { it.name }.forEach{
+            it.balance = sqLiteManagerNot.sumBalanceByPerson("table_cashify_not",it.name)
+            newArr.add(it)
+
+        }
+
         mRecyclerViewNot = binding.root.findViewById(R.id.recyclerViewNot)
         mRecyclerViewNot.setHasFixedSize(true)
         mLayoutManagerNot = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
-        mAdapterNot = PersonAdapter(personsNot, this)
+        mAdapterNot = PersonAdapter(newArr, this)
         mRecyclerViewNot.layoutManager=mLayoutManagerNot
         mRecyclerViewNot.adapter = mAdapterNot
     }

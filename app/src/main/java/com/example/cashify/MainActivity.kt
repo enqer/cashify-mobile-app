@@ -17,12 +17,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.isEmpty
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.cashify.databinding.ActivityMainBinding
+import com.example.cashify.ui.home.HomeFragment
+import com.example.cashify.ui.inputData.inputFragment
+import com.example.cashify.ui.personFragment.PersonFragment
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.ceil
@@ -54,6 +58,7 @@ class MainActivity : AppCompatActivity(){
         sqLiteManager = SQLiteManager(this)
 
         // stuff
+
 
 
 
@@ -131,6 +136,9 @@ class MainActivity : AppCompatActivity(){
             else{
                 Toast.makeText(this, "Record not saved", Toast.LENGTH_SHORT).show()
             }
+//            parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, PersonFragment()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, HomeFragment()).commit()
+
         }
 //        getPeople()
     }
@@ -139,9 +147,10 @@ class MainActivity : AppCompatActivity(){
     fun addPerson(view: View) {
 
 
-        val navHostFragment = supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-        val navController = navHostFragment.navController
-        navController.navigate(R.id.navigation_input)
+//        val navHostFragment = supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+//        val navController = navHostFragment.navController
+//        navController.navigate(R.id.navigation_input)
+        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, inputFragment()).commit()
 
     }
     fun selectImg(view: View){

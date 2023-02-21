@@ -40,8 +40,11 @@ class HomeFragment : Fragment() {
         val homeLentTo: TextView = root.findViewById(R.id.homeLentTo)
         val homeLentFrom: TextView = root.findViewById(R.id.homeLentFrom)
 
-        val lentTo = sqLiteManager.sumBalance("table_cashify")
-        val lentFrom = sqLiteManager.sumBalance("table_cashify_not")
+        var lentTo = sqLiteManager.sumBalance("table_cashify")
+        var lentFrom = sqLiteManager.sumBalance("table_cashify_not")
+
+        lentTo = (lentTo * 100.0).roundToInt() / 100.0
+        lentFrom = (lentFrom * 100.0).roundToInt() / 100.0
 
         if (Math.ceil(lentFrom) == Math.floor(lentFrom)){
             homeLentFrom.text = lentFrom.toInt().toString() + "€"
