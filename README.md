@@ -27,7 +27,7 @@ To add a new entry, just click the "ADD NEW" button and then you will be redirec
 To see our entries we click in our bottom navigation.
 
 If we want to check a particular entry then we simply click on it.
-On the other hand, if we want to delete an entry then we just move the given entry to the right. On the other hand, if we would like to sort the entries just click on "Name" or "Balance" depending on how we want to sort the data
+On the other hand, if we want to delete an entry then we just move the given entry to the right. On the other hand, if we would like to sort the entries just click on "Name" or "Balance" depending on how we want to sort the data.
 
 
 ![Lent Page](/img/img3.jpg)
@@ -36,11 +36,16 @@ In the attached image we can see the entry we created.
 
 ![Profile Page](/img/img4.jpg)
 
-We can remove any description of borrowed money when we have already received or returned the money
+We can remove any description of borrowed money when we have already received or returned the money.
 
 ![Profile Page](/img/img5.jpg)
 ![Profile Page](/img/img6.jpg)
 
+
+
+## Download apk
+
+![App](/app/release/app-release.apk)
 
 ## Authors
 
