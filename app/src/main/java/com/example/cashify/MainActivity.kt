@@ -129,6 +129,7 @@ class MainActivity : AppCompatActivity(){
     }
 
 
+
     fun addPerson(view: View) {
 
         supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, inputFragment()).commit()
