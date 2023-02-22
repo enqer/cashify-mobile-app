@@ -119,7 +119,7 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
         mAdapterNot.notifyItemChanged(position)
 
 
-        // przekazywanie danych
+        // data send
         val name = clickedItem.name
         val content = clickedItem.content
         val balance = clickedItem.balance
@@ -130,15 +130,6 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
 
         setFragmentResult("requestKey", bundleOf("n" to name,"c" to content, "d" to date, "b" to balance, "a" to avatar, "i" to allBalance, "w" to which))
 
-//         as per defined in your FragmentContainerView
-//        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-//        val navController = navHostFragment.navController
-//
-//// Navigate using the IDs you defined in your Nav Graph
-//        navController.navigate(R.id.navigation_person)
-
-        // works
-//         fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment_activity_main, PersonFragment())?.commit()
 
          parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, PersonFragment()).commit()
     }

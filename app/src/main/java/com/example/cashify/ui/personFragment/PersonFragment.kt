@@ -65,11 +65,7 @@ class PersonFragment : Fragment() {
 
 
             val s: String = "€"
-//            if (ceil(balance) == floor(balance)){
-//                txtBalance.text = balance.toInt().toString() + s
-//            }else{
-//                txtBalance.text=balance.toString() + s
-//            }
+
             if (ceil(allBalance) == floor(allBalance)) {
                 txtIncome.text = allBalance.toInt().toString() + s
             } else {
@@ -128,11 +124,6 @@ class PersonFragment : Fragment() {
 
 
             val newArr = ArrayList<Person>()
-//            sqLiteManager.getAllPeople("table_cashify").forEach {
-//                contents.add(it)
-//                contents.sortByDescending { it.balance }
-//
-//            }
 
             if (name != null) {
                 if (which != null) {

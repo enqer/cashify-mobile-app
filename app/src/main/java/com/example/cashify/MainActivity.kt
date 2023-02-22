@@ -57,13 +57,6 @@ class MainActivity : AppCompatActivity(){
 
         sqLiteManager = SQLiteManager(this)
 
-        // stuff
-
-
-
-
-
-
 
 
         val navView: BottomNavigationView = binding.navView
@@ -79,10 +72,7 @@ class MainActivity : AppCompatActivity(){
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-
     }
-
 
 
     fun submitPerson(view: View) {
@@ -136,16 +126,11 @@ class MainActivity : AppCompatActivity(){
             supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, HomeFragment()).commit()
 
         }
-//        getPeople()
     }
 
 
     fun addPerson(view: View) {
 
-
-//        val navHostFragment = supportFragmentManager?.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-//        val navController = navHostFragment.navController
-//        navController.navigate(R.id.navigation_input)
         supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, inputFragment()).commit()
 
     }
@@ -178,7 +163,5 @@ class MainActivity : AppCompatActivity(){
 
         inputAvatar = findViewById(view.id)
     }
-
-
 
 }
