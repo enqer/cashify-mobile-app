@@ -69,11 +69,11 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
         val balanceSortNot: TextView = root.findViewById(R.id.balanceSortNot)
         balanceSortNot.setOnClickListener{
             if (balanceSortNot.text.equals("Balance ▼")){
-                personsNot.sortBy { it.balance }
+                newArr.sortBy { it.balance }
                 mAdapterNot.notifyDataSetChanged()
                 balanceSortNot.text="Balance ▲"
             }else{
-                personsNot.sortByDescending { it.balance }
+                newArr.sortByDescending { it.balance }
                 mAdapterNot.notifyDataSetChanged()
                 balanceSortNot.text="Balance ▼"
             }
@@ -97,8 +97,8 @@ class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 var position: Int = viewHolder.adapterPosition
-                sqLiteManagerNot.deletePerson(personsNot[position].id, "table_cashify_not")
-                personsNot.removeAt(position)
+                sqLiteManagerNot.deletePerson(newArr[position].id, "table_cashify_not")
+                newArr.removeAt(position)
                 mAdapterNot.notifyDataSetChanged()
 
 

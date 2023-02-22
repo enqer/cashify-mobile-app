@@ -102,8 +102,8 @@ class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 var position: Int = viewHolder.adapterPosition
-                sqLiteManager.deletePerson(persons[position].id,"table_cashify")
-                persons.removeAt(position)
+                sqLiteManager.deletePerson(newArr[position].id,"table_cashify")
+                newArr.removeAt(position)
                 mAdapter.notifyDataSetChanged()
 
 
