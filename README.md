@@ -45,7 +45,7 @@ We can remove any description of borrowed money when we have already received or
 
 ## Download apk
 
-![App](/app/release/app-release.apk)
+[a relative link](/app/release/app-release.apk)
 
 ## Authors
 
