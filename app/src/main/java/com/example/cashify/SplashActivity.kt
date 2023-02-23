@@ -18,7 +18,7 @@ import kotlin.system.measureTimeMillis
 
 class SplashActivity : AppCompatActivity() {
 
-    private  lateinit var binding: ActivityMainBinding
+
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class SplashActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        },3000)
+        },1000)
     }
 
 }
