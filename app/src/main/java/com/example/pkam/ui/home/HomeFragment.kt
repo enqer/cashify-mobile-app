@@ -1,4 +1,4 @@
-package com.example.cashify.ui.home
+package com.example.pkam.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,11 @@ import android.widget.TextView
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.cashify.R
-import com.example.cashify.SQLiteManager
-import com.example.cashify.databinding.FragmentHomeBinding
+
+
+import com.example.pkam.R
+import com.example.pkam.SQLiteManager
+import com.example.pkam.databinding.FragmentHomeBinding
 import kotlin.math.roundToInt
 
 class HomeFragment : Fragment() {

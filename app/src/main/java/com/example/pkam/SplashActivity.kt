@@ -1,20 +1,12 @@
-package com.example.cashify
+package com.example.pkam
 
-import android.app.AlarmManager
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Intent
 import android.graphics.Color
-import android.icu.util.Calendar
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import androidx.annotation.RequiresApi
-import androidx.core.graphics.toColor
-import com.example.cashify.databinding.ActivityMainBinding
-import kotlin.system.measureTimeMillis
 
 class SplashActivity : AppCompatActivity() {
 

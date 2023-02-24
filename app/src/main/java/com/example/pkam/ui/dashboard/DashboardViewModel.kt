@@ -1,7 +1,5 @@
-package com.example.cashify.ui.dashboard
+package com.example.pkam.ui.dashboard
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class DashboardViewModel : ViewModel() {

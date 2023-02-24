@@ -7,30 +7,30 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.cashify.ui.home.HomeFragment"
+        android:name="com.example.pkam.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.cashify.ui.dashboard.DashboardFragment"
+        android:name="com.example.pkam.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.cashify.ui.notifications.NotificationsFragment"
+        android:name="com.example.pkam.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_person"
-        android:name="com.example.cashify.ui.personFragment.PersonFragment"
+        android:name="com.example.pkam.ui.personFragment.PersonFragment"
         android:label="Person"
         tools:layout="@layout/fragment_person"
         />
     <fragment
         android:id="@+id/navigation_input"
-        android:name="com.example.cashify.ui.inputData.inputFragment"
+        android:name="com.example.pkam.ui.inputData.inputFragment"
         android:label="Person"
         tools:layout="@layout/fragment_input"
         />

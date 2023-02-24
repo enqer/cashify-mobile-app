@@ -1,4 +1,4 @@
-package com.example.cashify.ui.notifications
+package com.example.pkam.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

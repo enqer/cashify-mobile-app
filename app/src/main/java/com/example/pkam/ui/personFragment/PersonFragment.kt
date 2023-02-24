@@ -1,4 +1,5 @@
-package com.example.cashify.ui.personFragment
+package com.example.pkam.ui.personFragment
+
 
 
 import android.os.Bundle
@@ -13,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cashify.*
+import com.example.pkam.*
 import java.lang.Math.ceil
 import java.lang.Math.floor
 

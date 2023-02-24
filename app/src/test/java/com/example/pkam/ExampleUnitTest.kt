@@ -1,4 +1,4 @@
-package com.example.cashify
+package com.example.pkam
 
 import org.junit.Test
 

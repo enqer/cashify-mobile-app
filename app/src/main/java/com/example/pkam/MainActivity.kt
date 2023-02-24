@@ -1,36 +1,22 @@
-package com.example.cashify
+package com.example.pkam
 
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.text.InputFilter
-import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.view.WindowManager
 import android.widget.*
-import android.window.SplashScreen
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.isEmpty
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.cashify.databinding.ActivityMainBinding
-import com.example.cashify.ui.home.HomeFragment
-import com.example.cashify.ui.inputData.inputFragment
-import com.example.cashify.ui.personFragment.PersonFragment
+import com.example.pkam.databinding.ActivityMainBinding
+import com.example.pkam.ui.home.HomeFragment
+import com.example.pkam.ui.inputData.inputFragment
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.math.ceil
-import kotlin.math.floor
 import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity(){

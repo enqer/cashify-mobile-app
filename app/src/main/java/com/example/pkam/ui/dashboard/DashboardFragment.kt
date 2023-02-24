@@ -1,6 +1,5 @@
-package com.example.cashify.ui.dashboard
+package com.example.pkam.ui.dashboard
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,19 +9,16 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cashify.Person
-import com.example.cashify.PersonAdapter
-import com.example.cashify.R
-import com.example.cashify.SQLiteManager
-import com.example.cashify.databinding.FragmentDashboardBinding
-import com.example.cashify.ui.personFragment.PersonFragment
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.pkam.Person
+import com.example.pkam.PersonAdapter
+import com.example.pkam.R
+import com.example.pkam.SQLiteManager
+import com.example.pkam.databinding.FragmentDashboardBinding
+import com.example.pkam.ui.personFragment.PersonFragment
+
 import kotlin.collections.ArrayList
 
 class DashboardFragment : Fragment(), PersonAdapter.OnItemClickListener{

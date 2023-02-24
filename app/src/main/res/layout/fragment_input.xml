@@ -161,7 +161,7 @@
             <RadioButton
                 android:id="@+id/inputRadioBtn2"
                 style="@style/InputRadioButton"
-                android:text="Money lent from sb" />
+                android:text="Money borrow from sb" />
         </RadioGroup>
 
         <Button

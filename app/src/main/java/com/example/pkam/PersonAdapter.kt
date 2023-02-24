@@ -1,15 +1,14 @@
-package com.example.cashify
+package com.example.pkam
 
 import android.content.Context
 
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cashify.PersonAdapter.PersonViewHolder
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import com.example.cashify.R
+import com.example.pkam.R
 import android.widget.TextView
 
 

@@ -1,4 +1,4 @@
-package com.example.cashify.ui.notifications
+package com.example.pkam.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,16 +9,15 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cashify.Person
-import com.example.cashify.PersonAdapter
-import com.example.cashify.R
-import com.example.cashify.SQLiteManager
-import com.example.cashify.databinding.FragmentNotificationsBinding
-import com.example.cashify.ui.personFragment.PersonFragment
+import com.example.pkam.Person
+import com.example.pkam.PersonAdapter
+import com.example.pkam.R
+import com.example.pkam.SQLiteManager
+import com.example.pkam.databinding.FragmentNotificationsBinding
+import com.example.pkam.ui.personFragment.PersonFragment
 import java.util.ArrayList
 
 class NotificationsFragment : Fragment(), PersonAdapter.OnItemClickListener {

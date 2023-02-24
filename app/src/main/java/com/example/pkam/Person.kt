@@ -1,6 +1,5 @@
-package com.example.cashify
+package com.example.pkam
 
-import android.text.Editable
 import java.util.*
 
 class Person(var name: String, var date: String, var content: String, var balance: Double, var id: Int = getAutoId(), var avatar: String) {

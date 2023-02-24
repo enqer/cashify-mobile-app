@@ -51,8 +51,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
 
         style="@style/personConstrain"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
@@ -90,7 +90,7 @@
                 <TextView
                     android:id="@+id/textView15"
                     style="@style/homeTextView"
-                    android:text="Lent from:" />
+                    android:text="Borrow from:" />
 
                 <TextView
                     android:id="@+id/homeLentFrom"
@@ -113,6 +113,7 @@
             <Button
                 android:id="@+id/homeBtn"
                 style="@style/homeBtn"
+                android:layout_marginBottom="20dp"
                 android:layout_gravity="start"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
