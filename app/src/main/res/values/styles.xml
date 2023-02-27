@@ -16,8 +16,8 @@
         <item name="android:textColor">@color/playBlack</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:fontFamily">@font/robotoregular</item>
     </style>
     <style name="InputEditText" >
@@ -34,7 +34,7 @@
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:buttonTint">@color/playPurple</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">15dp</item>
     </style>
 
             <!--   DASH PAGE     -->
